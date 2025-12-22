@@ -1,6 +1,9 @@
 import { NavLink, Outlet } from 'react-router-dom';
 
+// import { clearToken, isAuthed, setToken } from '@/services/auth';
+
 export default function RootLayout() {
+  // const authed = isAuthed();
   return (
     <div style={{ padding: 16 }}>
       <header style={{ marginBottom: 12 }}>
@@ -10,6 +13,14 @@ export default function RootLayout() {
           </NavLink>
           <NavLink to="/login">Login</NavLink>
           <NavLink to="/app/dashboard">App</NavLink>
+
+          {/* --- временный блок для теста --- */}
+          {/* <span style={{ marginLeft: 'auto', fontSize: 12, opacity: 0.8 }}>
+            {' '}
+            authed: {String(authed)}
+          </span> */}
+
+          {/* --- конец временного блока --- */}
         </nav>
       </header>
       <main style={{ border: '1px solid #ddd', padding: 12 }}>
