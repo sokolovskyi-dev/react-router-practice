@@ -9,6 +9,8 @@ import { loginAction } from './actions/loginAction';
 import AppLayout from './layouts/AppLayout';
 import RootLayout from './layouts/RootLayout';
 import { authGuardLoader } from './loaders/authGuardLoader';
+import { dashboardLoader } from './loaders/dashboardLoader';
+import { usersLoader } from './loaders/usersLoader';
 
 export const router = createBrowserRouter([
   {
@@ -29,8 +31,8 @@ export const router = createBrowserRouter([
         element: <AppLayout />,
         loader: authGuardLoader,
         children: [
-          { path: 'dashboard', element: <Dashboard /> },
-          { path: 'users', element: <Users /> },
+          { path: 'dashboard', element: <Dashboard />, loader: dashboardLoader },
+          { path: 'users', element: <Users />, loader: usersLoader },
         ],
       },
 
