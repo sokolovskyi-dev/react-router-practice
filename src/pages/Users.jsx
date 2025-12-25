@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 /**
  * Пока заглушка.
@@ -13,20 +13,14 @@ export default function Users() {
     <div>
       <h1>Users</h1>
 
-      <p style={{ fontSize: 12, opacity: 0.7 }}>
-        Users list is loaded BEFORE render by Router loader.
-      </p>
-      <h3>{data.title}</h3>
-
       <ul>
         {data.users.map(u => (
           <li key={u.id}>
-            {u.name} <span style={{ opacity: 0.6 }}>({u.id})</span>
+            {/* Link = меняет URL → Router решает, что грузить */}
+            <Link to={`/app/users/${u.id}`}>{u.name}</Link>
           </li>
         ))}
       </ul>
-
-      <p style={{ fontSize: 12, opacity: 0.7 }}>Next: add user details route /app/users/:id</p>
     </div>
   );
 }
